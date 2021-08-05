@@ -1,0 +1,36 @@
+{% extends "template.html"%}
+{% block conteudo %}
+	<form method="post" action="{{url_for('atualizar')}}" class="row g-3">
+		<fieldset>
+			<input type="hidden" name="id" value="{{carro.id}}">
+		<div class="mb-3">
+			<label >Marca</label>
+			<input class="quebra espaco" type="text" name="f_marca" maxlength="20" size="30" value="{{ carro.marca }}">
+		</div>
+		<div class="mb-3">
+			<label class="espaco">Modelo</label>
+			<input class="quebra espaco" type="text" name="f_modelo" maxlength="20" size="30" value="{{ carro.modelo }}">
+		</div>
+		<div class="mb-3">
+			<label>Cor</label>
+			<input  class="quebra espaco" type="text" name="f_cor" maxlength="20" size="30" value="{{ carro.cor }}">
+		</div>
+		<div class="mb-3">
+    		<label>Ano</label>
+    		<input class="quebra espaco" type="text" name="f_ano" maxlength="20" size="30" value="{{ carro.ano }}" >
+		</div>
+		<div class="mb-3">
+			<label>Combustível</label>
+    		<input class="quebra espaco" type="text" name="f_combu" maxlength="20" size="30" value="{{ carro.combustivel }}" >
+		</div>
+
+
+
+		<div class=" align-items-center " >
+			<input  type="submit" class="btn btn-outline-primary" name="f_btn_enviar" value="Salvar">
+		</div>
+		</fieldset>
+		</div>
+	</form>
+
+{% endblock %}

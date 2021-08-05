@@ -1,0 +1,47 @@
+{% extends "template.html"%}
+{% block conteudo %}
+		<table class="table table-dark table-hover">
+			<thead class="thead-default">
+				<tr>
+					<th>MARCA</th>
+					<th>MODELO</th>
+					<th>COR</th>
+					<th>ANO</th>
+					<th>COMBUSTIVEL</th>
+					<th>ID</th>
+					{% if 'usuario_logado'  in session and session['usuario_logado']!= None %}
+						<td>EXIBIR</td>
+						<th>EDITAR</th>
+						<th>DELETAR</th>
+					{% endif %}
+				</tr>
+
+			</thead>
+			<tbody>
+			{% for carro in carros  %}
+				<tr class="table-active">
+					<td>{{ carro.marca }}</td>
+					<td>{{ carro.modelo }}</td>
+					<td>{{ carro.cor }}</td>
+					<td>{{ carro.ano }}</td>
+					<td>{{ carro.combustivel }}</td>
+					<td>{{ carro.id }}</td>
+
+					<td>
+						<a href="{{ url_for('carro', id=carro.id) }}" class="btn btn-outline-success">EXIBIR</a>
+					</td>
+					{% if 'usuario_logado'  in session and session['usuario_logado']!= None %}
+						<td>
+							<a href="{{ url_for('editar', id=carro.id) }}" class="btn btn-outline-primary">EDITAR </a>
+						</td>
+						<td>
+							<a href="{{ url_for('deletar', id=carro.id) }}" class="btn btn-outline-danger">DELETAR </a>
+						</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+
+			</tbody>
+
+		</table>
+{% endblock %}

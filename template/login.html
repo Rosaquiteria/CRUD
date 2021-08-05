@@ -1,0 +1,23 @@
+{% extends "template.html"%}
+{% block conteudo %}
+	<form method="post" action="{{ url_for('autenticar') }}" class="row g-3">
+		<input type="hidden" name="proxima" value="{{ proxima or url_for( 'index' ) }}">
+		<fieldset>
+		<div class="mb-3">
+			<label >Usuário</label>
+			<input class="quebra espaco" type="text" name="f_usuario" maxlength="20" size="30">
+		</div>
+		<div class="mb-3">
+			<label class="espaco">senha</label>
+			<input class="quebra espaco" type="password" name="f_senha" maxlength="20" size="30">
+		</div>
+
+		<div class=" align-items-center " >
+			<input  type="submit" class="btn btn-outline-primary" name="f_btn_enviar" value="Salvar">
+		</div>
+		</fieldset>
+		</div>
+	</form>
+
+
+{% endblock %}
